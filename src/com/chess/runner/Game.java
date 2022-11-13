@@ -80,8 +80,7 @@ public class Game {
     public static int currentPieceCount(HashMap map) {
         Iterator<HashMap.Entry<String, ArrayList<AbstractPiece>>> itr = map.entrySet().iterator();
         int pieceCount = 0;
-        while(itr.hasNext())
-        {
+        while(itr.hasNext()) {
             HashMap.Entry<String, ArrayList<AbstractPiece>> entry = itr.next();
             pieceCount += entry.getValue().size();
         }
