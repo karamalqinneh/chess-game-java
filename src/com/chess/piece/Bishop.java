@@ -1,5 +1,4 @@
 package com.chess.piece;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -38,14 +37,18 @@ public class Bishop extends AbstractPiece implements Movable {
             Location next = LocationFactory.build(current, fileOffset, rankOffset);
             while (squareMap.containsKey(next)) {
                 if (squareMap.get(next).isOccupied()) {
-                    if (squareMap.get(next).getCurrentPiece().pieceColor.equals(this.pieceColor)) break;
+                    if (squareMap.get(next).getCurrentPiece().pieceColor.equals(this.pieceColor)) {
+                        break;
+                    }
                     candidates.add(next);
                     break;
                 }
                 candidates.add(next);
                 next = LocationFactory.build(next, fileOffset, rankOffset);
             }
-        } catch (Exception e) { }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -62,8 +65,8 @@ public class Bishop extends AbstractPiece implements Movable {
 
     @Override
     public void makeMove(Square square) {
-        if(square.isOccupied()) {
-            if(square.getCurrentPiece().pieceColor.toString().equals("LIGHT")) {
+        if (square.isOccupied()) {
+            if (square.getCurrentPiece().pieceColor.toString().equals("LIGHT")) {
                 DeadPieces.setLightPieces(square.getCurrentPiece());
             } else {
                 DeadPieces.setDarkPieces(square.getCurrentPiece());

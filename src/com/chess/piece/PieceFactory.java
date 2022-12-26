@@ -41,7 +41,7 @@ public final class PieceFactory {
 
         // Pawns
 
-        for(File file : File.values()) {
+        for (File file : File.values()) {
             pieces.put(new Location(file, 2), new Pawn(PieceColor.LIGHT));
             pieces.put(new Location(file, 7), new Pawn(PieceColor.DARK));
         }

@@ -60,8 +60,8 @@ public class Knight extends AbstractPiece implements Movable {
 
     @Override
     public void makeMove(Square square) {
-        if(square.isOccupied()) {
-            if(square.getCurrentPiece().pieceColor.toString().equals("LIGHT")) {
+        if (square.isOccupied()) {
+            if (square.getCurrentPiece().pieceColor.toString().equals("LIGHT")) {
                 DeadPieces.setLightPieces(square.getCurrentPiece());
             } else {
                 DeadPieces.setDarkPieces(square.getCurrentPiece());

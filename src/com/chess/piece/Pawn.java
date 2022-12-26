@@ -29,7 +29,7 @@ public class Pawn extends AbstractPiece implements Movable {
         int sign = (pieceColor.equals(PieceColor.DARK)) ? -1 : 1;
         moveCandidates.add(LocationFactory
                 .build(current, 0, sign));
-        if(isFirstMove) {
+        if (isFirstMove) {
             moveCandidates.add(LocationFactory
                     .build(current, 0, 2 * sign));
             return moveCandidates;
@@ -44,7 +44,7 @@ public class Pawn extends AbstractPiece implements Movable {
 
         return validMoves.stream().filter((candidate) -> {
             // occupied
-            if(candidate.getFile().equals(this.getCurrentSquare().getLocation().getFile()) &&
+            if (candidate.getFile().equals(this.getCurrentSquare().getLocation().getFile()) &&
                     squareMap.get(candidate).isOccupied()) {
                 return false;
             }
@@ -70,10 +70,6 @@ public class Pawn extends AbstractPiece implements Movable {
 
             return true;
         }).collect(Collectors.toList());
-
-
-
-
     }
 
     @Override
@@ -86,8 +82,8 @@ public class Pawn extends AbstractPiece implements Movable {
         if (isFirstMove) {
             isFirstMove = false;
         }
-        if(square.isOccupied()) {
-            if(square.getCurrentPiece().pieceColor.toString().equals("LIGHT")) {
+        if (square.isOccupied()) {
+            if (square.getCurrentPiece().pieceColor.toString().equals("LIGHT")) {
                 DeadPieces.setLightPieces(square.getCurrentPiece());
             } else {
                 DeadPieces.setDarkPieces(square.getCurrentPiece());

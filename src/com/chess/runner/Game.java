@@ -22,18 +22,18 @@ public class Game {
         // true -> game is not finished.
         while(true) {
             int gameStateHandler = gameState();
-            if(gameStateHandler == 1) {
+            if (1 == gameStateHandler) {
                 System.out.println("TIE");
                 break;
-            } else if (gameStateHandler == 2) {
+            } else if (2 == gameStateHandler) {
                 System.out.println("Dark Won");
                 break;
-            } else if (gameStateHandler == 3) {
+            } else if (3 == gameStateHandler) {
                 System.out.println("Light Won");
                 break;
             }
             String line = scanner.nextLine();
-            if(Objects.equals(line, "quit")) break;
+            if (Objects.equals(line, "quit")) break;
             try {
                 String[] fromTo = line.split("->");
                 File fromFile = File.valueOf(String.valueOf(Character.toUpperCase(fromTo[0].charAt(0))));
@@ -43,7 +43,7 @@ public class Game {
 
                 Square fromSq = board.getLocationSquareMap().get(new Location(fromFile, fromRank));
                 Location desiredMove = new Location(toFile, toRank);
-                if(fromSq.getCurrentPiece().getValidMoves(board).contains(desiredMove)) {
+                if (fromSq.getCurrentPiece().getValidMoves(board).contains(desiredMove)) {
                     Square toSq = board.getLocationSquareMap().get(new Location(toFile, toRank));
 
                     fromSq.getCurrentPiece().makeMove(toSq);
@@ -67,7 +67,7 @@ public class Game {
         HashMap darkPieces = DeadPieces.getDarkPieces();
         int lightPiecesCount = currentPieceCount(lightPieces);
         int darkPiecesCount = currentPieceCount(darkPieces);
-        if (lightPiecesCount == 15 && darkPiecesCount == 15) {
+        if (15 == lightPiecesCount && 15 == darkPiecesCount) {
             return 1;
         } else if (lightPieces.containsKey("King")) {
             return 2;

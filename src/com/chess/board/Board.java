@@ -31,10 +31,10 @@ public class Board {
     public Board() {
         locationSquareMap = new HashMap<>();
         Map<Location, AbstractPiece> pieces = PieceFactory.getPieces();
-        for(int i = 0; i < boardSquares.length; i++) {
+        for (int i = 0; i < boardSquares.length; i++) {
             int column = 0;
             currentColor = (i % 2 == 0) ? SquareColor.LIGHT : SquareColor.DARK;
-            for(File file : File.values()) {
+            for (File file : File.values()) {
                 Square newSquare = new Square(currentColor, new Location(file,  BOARD_LENGTH - i));
                 if (pieces.containsKey(newSquare.getLocation())) {
                     AbstractPiece piece = pieces.get(newSquare.getLocation());
@@ -69,13 +69,13 @@ public class Board {
 
     public void printBoard() {
         System.out.print("  ");
-        for(File file : File.values()) {
+        for (File file : File.values()) {
             System.out.print(file.name() + " ");
         }
         System.out.println();
-        for(int i = 0; i < boardSquares.length; i++) {
+        for (int i = 0; i < boardSquares.length; i++) {
             System.out.print(BOARD_LENGTH - i + " ");
-            for(int j = 0; j < boardSquares[i].length; j++) {
+            for (int j = 0; j < boardSquares[i].length; j++) {
                 if (boardSquares[i][j].isOccupied()) {
                     AbstractPiece piece = boardSquares[i][j].getCurrentPiece();
                     System.out.print(piece.getName().charAt(0) + " ");
@@ -87,7 +87,7 @@ public class Board {
             System.out.println();
         }
         System.out.print("  ");
-        for(File file : File.values()) {
+        for (File file : File.values()) {
             System.out.print(file.name() + " ");
         }
         System.out.println();

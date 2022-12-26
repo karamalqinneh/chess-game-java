@@ -16,7 +16,10 @@ public class Queen extends AbstractPiece implements Movable {
 
 
     public Queen(PieceColor pieceColor) {
-        this(pieceColor, new Bishop(pieceColor), new Rook(pieceColor));
+        super(pieceColor);
+        this.name = "Queen";
+        this.bishop = new Bishop(pieceColor);
+        this.rook = new Rook(pieceColor);
     }
 
     public Queen(PieceColor pieceColor, Movable bishop, Movable rook) {
@@ -41,8 +44,8 @@ public class Queen extends AbstractPiece implements Movable {
 
     @Override
     public void makeMove(Square square) {
-        if(square.isOccupied()) {
-            if(square.getCurrentPiece().pieceColor.toString().equals("LIGHT")) {
+        if (square.isOccupied()) {
+            if (square.getCurrentPiece().pieceColor.toString().equals("LIGHT")) {
                 DeadPieces.setLightPieces(square.getCurrentPiece());
             } else {
                 DeadPieces.setDarkPieces(square.getCurrentPiece());

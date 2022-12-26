@@ -46,8 +46,8 @@ public class King extends AbstractPiece implements Movable {
 
     @Override
     public void makeMove(Square square) {
-        if(square.isOccupied()) {
-            if(square.getCurrentPiece().pieceColor.toString().equals("LIGHT")) {
+        if (square.isOccupied()) {
+            if (square.getCurrentPiece().pieceColor.toString().equals("LIGHT")) {
                 System.out.println("LIGHT");
                 DeadPieces.setLightPieces(square.getCurrentPiece());
             } else {

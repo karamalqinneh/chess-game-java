@@ -87,8 +87,8 @@ public class Rook extends AbstractPiece implements Movable {
 
     @Override
     public void makeMove(Square square) {
-        if(square.isOccupied()) {
-            if(square.getCurrentPiece().pieceColor.toString().equals("DARK")) {
+        if (square.isOccupied()) {
+            if (square.getCurrentPiece().pieceColor.toString().equals("DARK")) {
                 DeadPieces.setLightPieces(square.getCurrentPiece());
             } else {
                 DeadPieces.setDarkPieces(square.getCurrentPiece());

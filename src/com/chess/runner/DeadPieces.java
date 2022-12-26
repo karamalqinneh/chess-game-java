@@ -20,11 +20,9 @@ public class DeadPieces {
     }
 
     public static void setLightPieces(AbstractPiece piece) {
-        ArrayList<AbstractPiece> current;
+        ArrayList<AbstractPiece> current = new ArrayList<>();
         if (lightPieces.containsKey(piece.getName())) {
-            current = new ArrayList<>(lightPieces.get(piece.getName()));
-        } else {
-            current = new ArrayList<>();
+            current.addAll(lightPieces.get(piece.getName()));
         }
         current.add(piece);
         lightPieces.put(piece.getName(), current);
