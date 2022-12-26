@@ -66,11 +66,12 @@ public class Bishop extends AbstractPiece implements Movable {
 		@Override
 		public void makeMove(Square square) {
 				if (square.isOccupied()) {
-						if (square.getCurrentPiece().pieceColor.toString().equals("LIGHT")) {
-								DeadPieces.setLightPieces(square.getCurrentPiece());
-						} else {
-								DeadPieces.setDarkPieces(square.getCurrentPiece());
-						}
+          PieceColor currentPieceColor = square.getCurrentPiece().pieceColor;
+          if (PieceColor.LIGHT == currentPieceColor) {
+              DeadPieces.setLightPieces(square.getCurrentPiece());
+          } else {
+              DeadPieces.setDarkPieces(square.getCurrentPiece());
+          }
 				}
 				this.currentSquare.setOccupied(false);
 				this.setCurrentSquare(square);
